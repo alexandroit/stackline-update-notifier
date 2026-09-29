@@ -10,10 +10,13 @@ def get(url):
   except urllib.error.HTTPError as e:
    if e.code not in (404,429,502,503) or n==119:raise
    time.sleep(5)
-def gh(path,method='GET',data=None):
+def gh(path,method='GET',data=None,optional=False):
  args=['gh','api',f'repos/{REPO}/'+path,'--method',method]
  if data is not None:args+=['--input','-']
- return json.loads(subprocess.check_output(args,input=json.dumps(data) if data is not None else None,text=True))
+ result=subprocess.run(args,input=json.dumps(data) if data is not None else None,text=True,capture_output=True)
+ if optional and result.returncode and 'HTTP 404' in result.stderr:return None
+ assert result.returncode==0,result.stderr
+ return json.loads(result.stdout)
 for p in PLAN['packages']:
  archive=Path('artifact')/(p['name'].replace('@','').replace('/','-')+'-'+p['version']+'.tgz');raw=archive.read_bytes();assert hashlib.sha512(raw).hexdigest()==p['expectedSha512']
  url='https://registry.npmjs.org/'+urllib.parse.quote(p['name'],safe='')+'/'+p['version']
@@ -41,7 +44,14 @@ for p in PLAN['packages']:
   # Verify signatures/provenance without executing any unchanged package lifecycle scripts.
   subprocess.run(['npm','audit','signatures','--omit=dev'],cwd=d,check=True)
  evidence=json.loads(archive.with_suffix('.json').read_text());evidence.update(sourceCommit=p.get('expectedSourceCommit',SHA),sourceRef=REF,publicationRun=invocation,dist=metadata['dist'],consumerInstall='PASS (lifecycle scripts disabled)',provenance='PASS',status='PASS');evidencefile=archive.with_suffix('.verification.json');evidencefile.write_text(json.dumps(evidence,indent=2)+'\n')
- gh('git/refs','POST',{'ref':'refs/tags/'+p['tag'],'sha':p.get('expectedSourceCommit',SHA)})
+ tag=gh('git/ref/tags/'+p['tag'],optional=True)
+ if tag:assert tag['object']['sha']==p.get('expectedSourceCommit',SHA)
+ else:gh('git/refs','POST',{'ref':'refs/tags/'+p['tag'],'sha':p.get('expectedSourceCommit',SHA)})
+ existing=gh('releases/tags/'+p['tag'],optional=True)
+ if existing:
+  assert existing['immutable'] and not existing['draft']
+  asset=next(a for a in existing['assets'] if a['name']==archive.name);assert asset['digest']=='sha256:'+hashlib.sha256(raw).hexdigest()
+  print(json.dumps({'package':p['name'],'version':p['version'],'release':existing['html_url'],'status':'PASS_EXISTING'}),flush=True);continue
  notes=f"Documentation and package discovery update for `{p['name']}@{p['version']}`.\n\nUses the published `{p['baselineVersion']}` tarball as the baseline. Only the README and package version, keywords and homepage changed. All other {evidence['unchangedFiles']} file contents are identical; runtime/development dependencies, original authors and license are preserved.\n\n[Documentation]({p['homepage']}) · [Publication evidence]({invocation})\n\nSHA-512: `{p['expectedSha512']}`"
  release=gh('releases','POST',{'tag_name':p['tag'],'name':p['name']+' '+p['version'],'body':notes,'draft':True})
  subprocess.run(['gh','release','upload',p['tag'],str(archive),str(evidencefile),'--repo',REPO],check=True)

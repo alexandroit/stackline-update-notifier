@@ -4,7 +4,7 @@
     {
       "name": "@stackline/update-notifier",
       "path": "readme.md",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "baselineVersion": "1.0.0",
       "keywords": [
         "stackline",
@@ -26,8 +26,8 @@
       "homepage": "https://alexandro.net/docs/vanilla/update-notifier/",
       "baselineTarball": "https://registry.npmjs.org/@stackline/update-notifier/-/update-notifier-1.0.0.tgz",
       "baselineIntegrity": "sha512-vM4xi3prbiR22sU/AuTTfPl7Rt1i18LUTlR4gjJ2Ua0aRFo5+sgozXAIC8Qomclsdxj2h2S8NHi1h4X86sxSWw==",
-      "expectedSha512": "d4aa8a5ca12941f9d26721f6ded465641d1235e20d8b98eab3dd474f1efd508be893ea693a1f0ab6ddb5b66e87bcbc65467bb86c0a4133fe2b2c03027497c256",
-      "tag": "docs-stackline-update-notifier-v1.0.1"
+      "expectedSha512": "d009b08d6bc4196cda173e8310573bb9c7739234c5766cbe8e496ef663db57aeb78cf812830804552cdf68ac0042fb5595735d92e79c512c806d5b4bfbec0e4e",
+      "tag": "docs-stackline-update-notifier-v1.0.2"
     }
   ]
 }
