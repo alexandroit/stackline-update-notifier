@@ -1,0 +1,5 @@
+Independent maintenance fork of update-notifier 6.0.2.
+Original copyright, author attribution, and license files are retained unchanged.
+Upstream: https://github.com/yeoman/update-notifier
+Base commit: 3b6b9b18428aa3848960f02df53cb571a7620a51
+Stackline is not affiliated with or endorsed by upstream maintainers.

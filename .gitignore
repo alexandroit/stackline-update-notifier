@@ -1,2 +1,8 @@
 node_modules
 yarn.lock
+
+# Stackline verification outputs
+/artifact/
+/node_modules/
+/package-lock.json
+# Exact install lock is force-added when required by CI.

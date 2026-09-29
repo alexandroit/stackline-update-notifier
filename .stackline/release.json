@@ -1,0 +1,13 @@
+{
+  "slug": "update-notifier",
+  "upstream": "update-notifier",
+  "upstreamVersion": "6.0.2",
+  "upstreamIntegrity": "sha512-EDxhTEVPZZRLWYcJ4ZXjGFN0oP7qYvbXWzEgRm/Yql4dHX5wDbvh89YHP6PK1lzZJYrMtXUuZZz8XGK+U6U1og==",
+  "upstreamCommit": "3b6b9b18428aa3848960f02df53cb571a7620a51",
+  "sourcePackageDirectory": ".",
+  "overlays": {},
+  "tests": [
+    "npm ci --ignore-scripts",
+    "npx --no-install ava"
+  ]
+}
