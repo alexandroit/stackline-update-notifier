@@ -1,6 +1,6 @@
 {
   "name": "@stackline/update-notifier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Update notifications for your CLI app",
   "license": "BSD-2-Clause",
   "repository": {
@@ -27,6 +27,10 @@
     "check.js"
   ],
   "keywords": [
+    "stackline",
+    "npm-package",
+    "update-notifier",
+    "nodejs",
     "npm",
     "update",
     "updater",
@@ -67,7 +71,7 @@
     "timeout": "20s",
     "serial": true
   },
-  "homepage": "https://github.com/alexandroit/stackline-update-notifier#readme",
+  "homepage": "https://alexandro.net/docs/vanilla/update-notifier/",
   "bugs": {
     "url": "https://github.com/alexandroit/stackline-update-notifier/issues"
   },

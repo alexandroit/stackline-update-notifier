@@ -1,8 +1,50 @@
-# update-notifier
+# @stackline/update-notifier
+
+> Update notifications for your CLI app.
+
+[![npm version](https://img.shields.io/npm/v/@stackline/update-notifier.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/update-notifier)
+[![license](https://img.shields.io/npm/l/@stackline/update-notifier.svg?style=flat-square)](https://github.com/alexandroit/stackline-update-notifier)
+[![GitHub repository](https://img.shields.io/badge/GitHub-alexandroit%2Fstackline-update-notifier-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-update-notifier)
+[![Docs](https://img.shields.io/badge/docs-alexandro.net-0f766e?style=flat-square)](https://alexandro.net/docs/vanilla/update-notifier/)
+[![Reddit community](https://img.shields.io/badge/community-r%2FStackline-ff4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/r/Stackline/)
+
+**[Documentation](https://alexandro.net/docs/vanilla/update-notifier/)** | **[npm](https://www.npmjs.com/package/@stackline/update-notifier)** | **[Issues](https://github.com/alexandroit/stackline-update-notifier/issues)** | **[Repository](https://github.com/alexandroit/stackline-update-notifier)**
+
+**Current package version:** `1.0.1`
+
+---
+
+## Why this package?
+
+`@stackline/update-notifier` is the Stackline-maintained distribution of `update-notifier@6.0.2`. It is an independent continuation of [update-notifier](https://github.com/yeoman/update-notifier); original authors and licenses remain credited below.
+
+## Compatibility
+
+| Item | Value |
+| :--- | :--- |
+| Package | `@stackline/update-notifier@1.0.1` |
+| API target | `update-notifier@6.0.2` |
+| Supported Node.js | `>=14.16` |
+| License | `BSD-2-Clause` |
+| Module type | `module` |
+| Runtime dependencies | `boxen, chalk, configstore, has-yarn, import-lazy, is-ci, is-installed-globally, is-npm, is-yarn-global, latest-version, pupa, semver, semver-diff, xdg-basedir` |
+
+## Installation
+
+```bash
+npm install @stackline/update-notifier
+```
+
+Preserve existing imports and plugin resolution with an npm alias:
+
+```bash
+npm install update-notifier@npm:@stackline/update-notifier
+```
+
+## Usage and API reference
 
 > Update notifications for your CLI app
 
-![](screenshot.png)
 
 Inform users of your package of updates in a non-intrusive way.
 
@@ -18,7 +60,7 @@ Inform users of your package of updates in a non-intrusive way.
 ## Install
 
 ```sh
-npm install update-notifier
+npm install @stackline/update-notifier
 ```
 
 ## Usage
@@ -26,7 +68,7 @@ npm install update-notifier
 ### Simple
 
 ```js
-import updateNotifier from 'update-notifier';
+import updateNotifier from '@stackline/update-notifier';
 import packageJson from './package.json' assert {type: 'json'};
 
 updateNotifier({pkg: packageJson}).notify();
@@ -35,7 +77,7 @@ updateNotifier({pkg: packageJson}).notify();
 ### Comprehensive
 
 ```js
-import updateNotifier from 'update-notifier';
+import updateNotifier from '@stackline/update-notifier';
 import packageJson from './package.json' assert {type: 'json'};
 
 // Checks for available update and returns an instance
@@ -221,3 +263,25 @@ There are a bunch projects using it:
 		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
 	</sub>
 </div>
+
+## Credits and original authors
+
+- Original project: [update-notifier](https://github.com/yeoman/update-notifier).
+- Sindre Sorhus.
+- Stackline maintenance: [Alexandro Paixao Marques](https://www.linkedin.com/in/aleinfo/) and [Stackline contributors](https://github.com/alexandroit).
+
+Original copyright, license notices and contributor acknowledgements remain part of this distribution. Stackline maintenance does not replace authorship of the original work.
+
+## License
+
+`BSD-2-Clause`. See the license and notice files in the [repository](https://github.com/alexandroit/stackline-update-notifier).
+
+## Community and Links
+
+- [Stackline website](https://alexandro.net/)
+- [GitHub projects](https://github.com/alexandroit)
+- [npm packages](https://www.npmjs.com/~alex360qc)
+- [Reddit community — r/Stackline](https://www.reddit.com/r/Stackline/)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+
+Use this repository's issue tracker for reproducible bugs and feature requests. Join r/Stackline for examples, usage questions and release discussions.
