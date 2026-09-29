@@ -8,6 +8,7 @@
   "overlays": {},
   "tests": [
     "npm ci --ignore-scripts",
-    "npx --no-install ava"
+    "CI=false npx --no-install ava 'test/*.js'",
+    "node --test scripts/stackline-ci-contract.test.mjs"
   ]
 }

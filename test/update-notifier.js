@@ -2,9 +2,10 @@ import process from 'node:process';
 import fs from 'node:fs';
 import test from 'ava';
 import mockRequire from 'mock-require';
-import updateNotifier from '../index.js';
 
 mockRequire('is-ci', false);
+// ESM imports are hoisted; install the CI stub before loading the module.
+const {default: updateNotifier} = await import('../index.js');
 
 const generateSettings = (options = {}) => ({
 	pkg: {
