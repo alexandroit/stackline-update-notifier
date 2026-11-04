@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {mkdtempSync,readFileSync,readdirSync,writeFileSync,rmSync} from 'node:fs';
+import {mkdtempSync,readFileSync,writeFileSync,rmSync} from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -8,7 +8,7 @@ import {createRequire} from 'node:module';
 const root=process.cwd();
 const cfg=JSON.parse(readFileSync('.stackline/release.json','utf8'));
 const metadata=JSON.parse(readFileSync('.stackline/package.json','utf8'));
-const archive=path.resolve('artifact',readdirSync('artifact').find(x=>x.endsWith('.tgz')));
+const archive=path.resolve('artifact',metadata.name.replace(/^@/,'').replace('/','-')+'-'+metadata.version+'.tgz');
 const cwd=mkdtempSync(path.join(os.tmpdir(),'stackline-runtime-'));
 try {
  writeFileSync(path.join(cwd,'package.json'),JSON.stringify({name:'stackline-packed-contract',version:'1.0.0',private:true,dependencies:{[metadata.name]:'file:'+archive}}));

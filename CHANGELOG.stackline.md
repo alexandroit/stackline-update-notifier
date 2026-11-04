@@ -1,5 +1,10 @@
 # Stackline changelog
 
+## 1.0.3
+
+- Refresh the development toolchain and locked dependencies to address known security advisories.
+- Run CI and publication with patched Node.js and verify the exact packed manifest.
+
 ## 1.0.0
 
 - Adopt maintenance from `update-notifier@6.0.2` with preserved source history and license.

@@ -16,7 +16,8 @@
 		"node": ">=14.16"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava",
+		"audit:security": "node scripts/audit-reviewed.cjs"
 	},
 	"files": [
 		"index.js",
@@ -58,10 +59,14 @@
 		"fixture-stdout": "^0.2.1",
 		"mock-require": "^3.0.3",
 		"strip-ansi": "^7.0.1",
-		"xo": "^0.50.0"
+		"xo": "^0.59.3"
 	},
 	"ava": {
 		"timeout": "20s",
 		"serial": true
+	},
+	"overrides": {
+		"glob@>=9 <14.0.2": "^14.0.2",
+		"minimatch@>=7 <11.0.1": "^11.0.1"
 	}
 }
