@@ -288,4 +288,4 @@ Use this repository's issue tracker for reproducible bugs and feature requests. 
 
 ## Upstream documentation
 
-The original upstream README is preserved in [README.upstream.md](README.upstream.md).
+The original upstream README is preserved in [UPSTREAM_README.md](UPSTREAM_README.md).

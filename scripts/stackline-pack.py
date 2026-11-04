@@ -14,7 +14,7 @@ before={k:hashlib.sha256(v).hexdigest() for k,v in files.items()}
 for target,source in CFG['overlays'].items():
  files[target]=(ROOT/source).read_bytes()
 files['package.json']=(ROOT/'.stackline/package.json').read_bytes()
-for name in ['STACKLINE.md','UPSTREAM.md','NOTICE.stackline','CHANGELOG.stackline.md','README.upstream.md']:
+for name in ['STACKLINE.md','UPSTREAM.md','NOTICE.stackline','CHANGELOG.stackline.md','UPSTREAM_README.md']:
  files[name]=(ROOT/name).read_bytes()
 after={k:hashlib.sha256(v).hexdigest() for k,v in files.items()}
 changed=sorted(k for k in before if before[k]!=after[k])
