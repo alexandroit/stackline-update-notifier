@@ -30,6 +30,7 @@ jobs:
         run: CI=false npx --no-install ava 'test/*.js'
       - run: node --test scripts/stackline-ci-contract.test.mjs
       - run: python3 scripts/stackline-pack.py
+      - run: python3 .github/scripts/check-release-readme.py artifact/*.tgz
       - run: node scripts/stackline-test-packed.mjs
       - run: node --test scripts/registry-requests.test.mjs
       - run: node scripts/audit-reviewed.cjs --self-test

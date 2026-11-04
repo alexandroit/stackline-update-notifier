@@ -5,7 +5,9 @@
   "upstreamIntegrity": "sha512-EDxhTEVPZZRLWYcJ4ZXjGFN0oP7qYvbXWzEgRm/Yql4dHX5wDbvh89YHP6PK1lzZJYrMtXUuZZz8XGK+U6U1og==",
   "upstreamCommit": "3b6b9b18428aa3848960f02df53cb571a7620a51",
   "sourcePackageDirectory": ".",
-  "overlays": {},
+  "overlays": {
+    "readme.md": "readme.md"
+  },
   "tests": [
     "npm ci --ignore-scripts",
     "CI=false npx --no-install ava 'test/*.js'",

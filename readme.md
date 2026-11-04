@@ -10,7 +10,7 @@
 
 **[Documentation](https://alexandro.net/docs/vanilla/update-notifier/)** | **[npm](https://www.npmjs.com/package/@stackline/update-notifier)** | **[Issues](https://github.com/alexandroit/stackline-update-notifier/issues)** | **[Repository](https://github.com/alexandroit/stackline-update-notifier)**
 
-**Current package version:** `1.0.2`
+**Current package version:** `1.0.4`
 
 ---
 
@@ -22,7 +22,7 @@
 
 | Item | Value |
 | :--- | :--- |
-| Package | `@stackline/update-notifier@1.0.2` |
+| Package | `@stackline/update-notifier@1.0.4` |
 | API target | `update-notifier@6.0.2` |
 | Supported Node.js | `>=14.16` |
 | License | `BSD-2-Clause` |
@@ -285,3 +285,7 @@ Original copyright, license notices and contributor acknowledgements remain part
 - [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
 
 Use this repository's issue tracker for reproducible bugs and feature requests. Join r/Stackline for examples, usage questions and release discussions.
+
+## Upstream documentation
+
+The original upstream README is preserved in [README.upstream.md](README.upstream.md).
